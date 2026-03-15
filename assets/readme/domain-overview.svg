@@ -1,0 +1,47 @@
+<svg width="1200" height="620" viewBox="0 0 1200 620" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="620" rx="24" fill="#F7F4EE"/>
+  <text x="54" y="62" fill="#17324D" font-family="Georgia, serif" font-size="34" font-weight="700">Domain Overview</text>
+  <text x="54" y="96" fill="#4B5563" font-family="Segoe UI, Arial, sans-serif" font-size="18">Core relationships between users, profiles, subjects, and tutoring sessions.</text>
+
+  <rect x="60" y="150" width="220" height="140" rx="20" fill="#17324D"/>
+  <text x="86" y="192" fill="#F9FAFB" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">User</text>
+  <text x="86" y="228" fill="#D9E8EE" font-family="Segoe UI, Arial, sans-serif" font-size="18">Student / Tutor / Admin</text>
+  <text x="86" y="256" fill="#D9E8EE" font-family="Segoe UI, Arial, sans-serif" font-size="18">Email + PasswordHash</text>
+
+  <rect x="340" y="100" width="230" height="130" rx="20" fill="#35607A"/>
+  <text x="366" y="140" fill="#F9FAFB" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">TutorProfile</text>
+  <text x="366" y="174" fill="#E8F1F4" font-family="Segoe UI, Arial, sans-serif" font-size="17">Headline, Bio</text>
+  <text x="366" y="198" fill="#E8F1F4" font-family="Segoe UI, Arial, sans-serif" font-size="17">HourlyRate, Experience</text>
+
+  <rect x="340" y="258" width="230" height="110" rx="20" fill="#8FB8C6"/>
+  <text x="366" y="300" fill="#17324D" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">StudentProfile</text>
+  <text x="366" y="334" fill="#17324D" font-family="Segoe UI, Arial, sans-serif" font-size="17">GradeLevel</text>
+
+  <rect x="652" y="150" width="220" height="130" rx="20" fill="#E6A15A"/>
+  <text x="678" y="192" fill="#17324D" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">Subject</text>
+  <text x="678" y="226" fill="#17324D" font-family="Segoe UI, Arial, sans-serif" font-size="18">Name + Description</text>
+
+  <rect x="928" y="136" width="210" height="156" rx="20" fill="#2C5C4A"/>
+  <text x="954" y="178" fill="#F9FAFB" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">TutoringSession</text>
+  <text x="954" y="212" fill="#D8EEE5" font-family="Segoe UI, Arial, sans-serif" font-size="17">Tutor + Student + Subject</text>
+  <text x="954" y="238" fill="#D8EEE5" font-family="Segoe UI, Arial, sans-serif" font-size="17">Start / End</text>
+  <text x="954" y="264" fill="#D8EEE5" font-family="Segoe UI, Arial, sans-serif" font-size="17">Pending / Confirmed / Completed</text>
+
+  <rect x="654" y="350" width="216" height="108" rx="20" fill="#8C4A2F"/>
+  <text x="680" y="392" fill="#F9FAFB" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">TutorSubject</text>
+  <text x="680" y="426" fill="#F4E4C7" font-family="Segoe UI, Arial, sans-serif" font-size="17">Many-to-many bridge</text>
+
+  <path d="M280 184H340" stroke="#17324D" stroke-width="4" stroke-linecap="round"/>
+  <path d="M280 244H340" stroke="#17324D" stroke-width="4" stroke-linecap="round"/>
+  <path d="M570 164H652" stroke="#17324D" stroke-width="4" stroke-linecap="round"/>
+  <path d="M872 214H928" stroke="#17324D" stroke-width="4" stroke-linecap="round"/>
+  <path d="M764 280V350" stroke="#17324D" stroke-width="4" stroke-linecap="round"/>
+  <path d="M570 164C610 164 612 164 652 164" stroke="#17324D" stroke-width="4" stroke-linecap="round"/>
+  <path d="M870 404C984 404 1033 346 1033 292" stroke="#17324D" stroke-width="4" stroke-linecap="round"/>
+
+  <text x="294" y="176" fill="#4B5563" font-family="Segoe UI, Arial, sans-serif" font-size="15">1:1 tutor</text>
+  <text x="294" y="270" fill="#4B5563" font-family="Segoe UI, Arial, sans-serif" font-size="15">1:1 student</text>
+  <text x="602" y="154" fill="#4B5563" font-family="Segoe UI, Arial, sans-serif" font-size="15">teaches</text>
+  <text x="888" y="204" fill="#4B5563" font-family="Segoe UI, Arial, sans-serif" font-size="15">books</text>
+  <text x="780" y="322" fill="#4B5563" font-family="Segoe UI, Arial, sans-serif" font-size="15">joins</text>
+</svg>

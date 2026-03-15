@@ -1,0 +1,25 @@
+<svg width="1200" height="420" viewBox="0 0 1200 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="420" rx="28" fill="url(#bg)"/>
+  <circle cx="1020" cy="86" r="160" fill="#E6A15A" fill-opacity="0.16"/>
+  <circle cx="112" cy="366" r="150" fill="#8FB8C6" fill-opacity="0.14"/>
+  <rect x="690" y="94" width="388" height="232" rx="24" fill="#F5F3EF" fill-opacity="0.1" stroke="#F5F3EF" stroke-opacity="0.25"/>
+  <rect x="730" y="132" width="308" height="30" rx="10" fill="#F4E4C7"/>
+  <rect x="730" y="178" width="188" height="16" rx="8" fill="#8FB8C6"/>
+  <rect x="730" y="206" width="156" height="16" rx="8" fill="#8FB8C6" fill-opacity="0.78"/>
+  <rect x="730" y="244" width="112" height="40" rx="12" fill="#E6A15A"/>
+  <rect x="858" y="244" width="112" height="40" rx="12" fill="#2C5C4A"/>
+  <rect x="986" y="244" width="52" height="40" rx="12" fill="#8C4A2F"/>
+  <text x="72" y="126" fill="#F9FAFB" font-family="Georgia, serif" font-size="50" font-weight="700">Tutoring Platform API</text>
+  <text x="72" y="170" fill="#D9E8EE" font-family="Segoe UI, Arial, sans-serif" font-size="24">Production-style ASP.NET Core Web API for tutor discovery,</text>
+  <text x="72" y="202" fill="#D9E8EE" font-family="Segoe UI, Arial, sans-serif" font-size="24">session booking, JWT auth, and PostgreSQL persistence.</text>
+  <text x="72" y="270" fill="#F4E4C7" font-family="Segoe UI, Arial, sans-serif" font-size="18">Controller-based • EF Core • JWT • PostgreSQL • OpenAPI • Tests</text>
+  <rect x="72" y="304" width="188" height="42" rx="14" fill="#F4E4C7"/>
+  <text x="102" y="331" fill="#17324D" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="700">Interview-ready backend</text>
+  <defs>
+    <linearGradient id="bg" x1="60" y1="32" x2="1126" y2="398" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17324D"/>
+      <stop offset="0.54" stop-color="#35607A"/>
+      <stop offset="1" stop-color="#22485E"/>
+    </linearGradient>
+  </defs>
+</svg>
