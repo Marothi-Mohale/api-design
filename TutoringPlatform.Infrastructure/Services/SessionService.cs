@@ -33,8 +33,8 @@ public class SessionService(AppDbContext dbContext) : ISessionService
         }
 
         var tutor = await dbContext.Users
-            .Include(x => x.TutorProfile)!
-                .ThenInclude(x => x.TutorSubjects)
+            .Include(x => x.TutorProfile)
+                .ThenInclude(x => x!.TutorSubjects)
             .FirstOrDefaultAsync(x => x.Id == request.TutorId, cancellationToken)
             ?? throw new NotFoundException("Tutor account was not found.");
 

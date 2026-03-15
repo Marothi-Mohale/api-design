@@ -18,6 +18,7 @@ public static class DependencyInjection
 
         services.AddScoped<IPasswordHasher, Pbkdf2PasswordHasher>();
         services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
+        services.AddScoped<DevelopmentDataSeeder>();
         services.AddScoped<IAuthService, AuthService>();
         services.AddScoped<ISubjectService, SubjectService>();
         services.AddScoped<ITutorService, TutorService>();

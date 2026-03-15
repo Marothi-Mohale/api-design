@@ -16,8 +16,8 @@ public class TutorService(AppDbContext dbContext) : ITutorService
     {
         var tutorsQuery = dbContext.Users
             .AsNoTracking()
-            .Include(x => x.TutorProfile)!
-                .ThenInclude(x => x.TutorSubjects)
+            .Include(x => x.TutorProfile)
+                .ThenInclude(x => x!.TutorSubjects)
                 .ThenInclude(x => x.Subject)
             .Where(x => x.Role == UserRole.Tutor && x.TutorProfile != null);
 
@@ -82,8 +82,8 @@ public class TutorService(AppDbContext dbContext) : ITutorService
     public async Task<TutorDetailDto> UpsertProfileAsync(Guid tutorUserId, UpsertTutorProfileRequestDto request, CancellationToken cancellationToken = default)
     {
         var tutor = await dbContext.Users
-            .Include(x => x.TutorProfile)!
-                .ThenInclude(x => x.TutorSubjects)
+            .Include(x => x.TutorProfile)
+                .ThenInclude(x => x!.TutorSubjects)
             .FirstOrDefaultAsync(x => x.Id == tutorUserId, cancellationToken)
             ?? throw new NotFoundException("Tutor account was not found.");
 
@@ -134,8 +134,8 @@ public class TutorService(AppDbContext dbContext) : ITutorService
     {
         return dbContext.Users
             .AsNoTracking()
-            .Include(x => x.TutorProfile)!
-                .ThenInclude(x => x.TutorSubjects)
+            .Include(x => x.TutorProfile)
+                .ThenInclude(x => x!.TutorSubjects)
                 .ThenInclude(x => x.Subject)
             .Where(x => x.Role == UserRole.Tutor && x.TutorProfile != null);
     }

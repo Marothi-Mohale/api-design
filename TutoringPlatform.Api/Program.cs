@@ -1,12 +1,14 @@
-using System.Reflection;
 using System.Text;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using TutoringPlatform.Api.Development;
 using TutoringPlatform.Api.Middleware;
+using TutoringPlatform.Api.OpenApi;
 using TutoringPlatform.Infrastructure;
 using TutoringPlatform.Infrastructure.Auth;
+using TutoringPlatform.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,25 +60,26 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddAuthorization();
 builder.Services.AddInfrastructure(builder.Configuration);
 
-builder.Services.AddSwaggerGen(options =>
-{
-    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-    if (File.Exists(xmlPath))
-    {
-        options.IncludeXmlComments(xmlPath);
-    }
-});
-
 var app = builder.Build();
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
+    try
+    {
+        await using var scope = app.Services.CreateAsyncScope();
+        var seeder = scope.ServiceProvider.GetRequiredService<DevelopmentDataSeeder>();
+        await seeder.SeedAsync();
+    }
+    catch (Exception exception)
+    {
+        app.Logger.LogWarning(exception, "Development seed could not run. OpenAPI docs will still be available, but data-backed endpoints may require a running PostgreSQL instance.");
+    }
+
     app.MapOpenApi();
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.MapOpenApiUi();
+    app.MapDevelopmentDatabaseEndpoints();
 }
 
 app.UseHttpsRedirection();

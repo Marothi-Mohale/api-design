@@ -48,9 +48,57 @@ dotnet build .\TutoringPlatform.slnx --no-restore
 dotnet run --project .\TutoringPlatform.Api\TutoringPlatform.Api.csproj
 ```
 
-4. Open Swagger in development:
+4. Open the development docs:
 
-- `https://localhost:<port>/swagger`
+- `http://localhost:5280/docs`
+- `http://localhost:5280/openapi/v1.json`
+
+## Local PostgreSQL Workflow
+
+This project includes a repeatable local development database setup:
+
+- [compose.yaml](/C:/Users/ASUS/Documents/API%20DESIGN/compose.yaml) starts PostgreSQL in Docker
+- [start-dev-postgres.ps1](/C:/Users/ASUS/Documents/API%20DESIGN/scripts/start-dev-postgres.ps1) starts the database container
+- [update-dev-database.ps1](/C:/Users/ASUS/Documents/API%20DESIGN/scripts/update-dev-database.ps1) restores the EF tool and applies migrations
+- [seed-dev-data.ps1](/C:/Users/ASUS/Documents/API%20DESIGN/scripts/seed-dev-data.ps1) triggers the development seed endpoint
+
+The initial EF Core migration lives in:
+
+- [20260315133553_InitialCreate.cs](/C:/Users/ASUS/Documents/API%20DESIGN/TutoringPlatform.Infrastructure/Data/Migrations/20260315133553_InitialCreate.cs)
+
+Recommended sequence:
+
+```powershell
+docker compose up -d postgres
+.\scripts\update-dev-database.ps1
+dotnet run --project .\TutoringPlatform.Api\TutoringPlatform.Api.csproj
+.\scripts\seed-dev-data.ps1
+```
+
+Development-only endpoints are also available while the API is running:
+
+- `POST http://localhost:5280/dev/migrate`
+- `POST http://localhost:5280/dev/seed`
+
+## Development Seed Data
+
+In `Development`, the API attempts to create and seed the PostgreSQL database if it is empty. The seed is intentionally lightweight and only runs when there is no existing data.
+
+Demo accounts:
+
+- `admin@tutoringplatform.dev` / `Admin123!`
+- `ada@tutoringplatform.dev` / `Tutor123!`
+- `grace@tutoringplatform.dev` / `Tutor123!`
+- `student@tutoringplatform.dev` / `Student123!`
+
+Seeded data includes:
+
+- core subjects such as Mathematics, Physics, Chemistry, and Computer Science
+- two tutor profiles with subject assignments
+- one student profile
+- one sample upcoming tutoring session
+
+If PostgreSQL is not running, the API will still start in development and log that seed data could not be applied.
 
 ## Suggested Next Steps
 
