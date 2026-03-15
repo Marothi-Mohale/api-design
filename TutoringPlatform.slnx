@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="TutoringPlatform.Api/TutoringPlatform.Api.csproj" />
+  <Project Path="TutoringPlatform.Application/TutoringPlatform.Application.csproj" />
+  <Project Path="TutoringPlatform.Domain/TutoringPlatform.Domain.csproj" />
+  <Project Path="TutoringPlatform.Infrastructure/TutoringPlatform.Infrastructure.csproj" />
+  <Project Path="TutoringPlatform.Tests/TutoringPlatform.Tests.csproj" />
+</Solution>
